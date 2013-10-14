@@ -107,8 +107,6 @@
 @property (nonatomic) BOOL isScrollable;
 @property(nonatomic) BOOL enablesReturnKeyAutomatically;
 
-@property (nonatomic, assign) UIResponder *overrideNextResponder;
-
 //uitextview methods
 //need others? use .internalTextView
 - (BOOL)becomeFirstResponder;

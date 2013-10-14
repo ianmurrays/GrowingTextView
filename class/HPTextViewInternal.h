@@ -34,4 +34,6 @@
 @property (nonatomic, strong) UIColor *placeholderColor;
 @property (nonatomic) BOOL displayPlaceHolder;
 
+@property (nonatomic, assign) UIResponder *overrideNextResponder;
+
 @end
