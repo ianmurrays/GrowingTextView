@@ -30,9 +30,8 @@
 
 @interface HPTextViewInternal : UITextView
 
-@property (nonatomic, strong) NSString *placeholder;
-@property (nonatomic, strong) UIColor *placeholderColor;
-@property (nonatomic) BOOL displayPlaceHolder;
+@property (nonatomic,assign) UIEdgeInsets    placeholderInsets;
+@property (nonatomic,weak)   UILabel        *placeholder;
 
 @property (nonatomic, assign) UIResponder *overrideNextResponder;
 

@@ -87,9 +87,9 @@
 @property (nonatomic) int minHeight;
 @property BOOL animateHeightChange;
 @property NSTimeInterval animationDuration;
-@property (nonatomic, strong) NSString *placeholder;
-@property (nonatomic, strong) UIColor *placeholderColor;
-@property (nonatomic, strong) UITextView *internalTextView;	
+@property (nonatomic,weak,readonly) UILabel *placeholder;
+@property (nonatomic,assign) UIEdgeInsets placeholderInsets;
+@property (nonatomic,strong) UITextView *internalTextView;
 
 
 //uitextview properties

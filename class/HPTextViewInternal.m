@@ -30,9 +30,55 @@
 
 @implementation HPTextViewInternal
 
-@synthesize placeholder;
-@synthesize placeholderColor;
-@synthesize displayPlaceHolder;
+- (id)init
+{
+    self = [super init];
+    
+    if (self)
+    {
+        [self prepareSubviews];
+    }
+    
+    return self;
+}
+
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    
+    if (self)
+    {
+        [self prepareSubviews];
+    }
+    
+    return self;
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    
+    if (self)
+    {
+        [self prepareSubviews];
+    }
+    
+    return self;
+}
+
+- (void)prepareSubviews
+{
+    _placeholderInsets = UIEdgeInsetsMake(4, 4, 0, 4);
+    
+    UILabel *placeholder        = [[UILabel alloc] initWithFrame:UIEdgeInsetsInsetRect(self.bounds, _placeholderInsets)];
+    placeholder.textColor       = [UIColor lightGrayColor];
+    placeholder.textAlignment   = NSTextAlignmentLeft;
+    placeholder.clipsToBounds   = YES;
+    placeholder.font            = [UIFont systemFontOfSize:14.0];
+    placeholder.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    [self addSubview:placeholder];
+    _placeholder = placeholder;
+}
 
 -(void)setText:(NSString *)text
 {
@@ -96,15 +142,6 @@
     }
     
     [super setContentSize:contentSize];
-}
-
-- (void)drawRect:(CGRect)rect
-{
-    [super drawRect:rect];
-    if (displayPlaceHolder && placeholder && placeholderColor) {
-        [placeholderColor set];
-        [placeholder drawInRect:CGRectMake(8.0f, 8.0f, self.frame.size.width - 16.0f, self.frame.size.height - 16.0f) withFont:self.font];
-    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
